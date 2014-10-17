@@ -118,9 +118,6 @@ public class MainActivity extends ActionBarActivity {
             up.setOnClickListener(new OnClickListener(){
 				@Override
 				public void onClick(View arg0) {
-					if (getHere()==getTop()){  //here is top
-						//do nothing
-					} else {  //not at top
 						File h = getHere().getParentFile();
 						if (h!=null){
 							setHere(h);
@@ -133,8 +130,7 @@ public class MainActivity extends ActionBarActivity {
 								}
 							}
 							fAd.notifyDataSetChanged();
-						}
-					}		
+						}		
 				}
             });
             fList.setOnItemClickListener(new OnItemClickListener(){
@@ -154,6 +150,7 @@ public class MainActivity extends ActionBarActivity {
 							}
 						}
 						fAd.notifyDataSetChanged();
+						Log.v("OnItemClick", "entering dir:"+herev.getName());
 					} else {  //open pic view
 						TextView vtype = (TextView)view.findViewById(R.id.type);
 						String type = vtype.getText().toString();
@@ -228,9 +225,9 @@ public class MainActivity extends ActionBarActivity {
             protected void onPostExecute(Bitmap result) {
     			if (result!=null){
     				pic.setImageBitmap(result);
-    				Toast t;
-    				t = Toast.makeText(getBaseContext(), "Done Loading", Toast.LENGTH_SHORT);
-    				t.show();
+    				//Toast t;
+    				//t = Toast.makeText(getBaseContext(), "Done Loading", Toast.LENGTH_SHORT);
+    				//t.show();
     			}
             }
 
